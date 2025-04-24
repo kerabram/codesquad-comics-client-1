@@ -1,10 +1,10 @@
 function Header (){
     return (
           <header>
-            <div class="logo">
-              <a href="index.html">
+            <div className="logo">
+              <a href="#">
                 <img
-                src="public/images/CodeSquad-Comics-logo.png"
+                src="../../public/images/CodeSquad-Comics-logo.jpg"
                 alt="CodeSquad Comics Logo" />
               </a>
             </div>

@@ -7,7 +7,8 @@ function Home() {
             <div className="book-listings">
                 {booksData.map((book) => (
                     <div className="book-listing" key={book.id}>
-                      <img src= {`/public/images/${book.cover}`} alt={book.title} />
+                      <img src= {`/images/${book.imageUrl}`} alt={book.title}/>
+                      {/* {`../../public/images/${book.image}`} -Kit- you were very close. We don't reference the public directory in image paths. You referenced cover, where we need to target the image in books.js, which corresponds with the key there  */}
                         <h3>{book.title}</h3>
                         <p>Author: {book.author}</p>
                         <a href="#">View Details</a>

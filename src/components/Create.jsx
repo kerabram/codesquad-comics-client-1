@@ -5,11 +5,11 @@ function Create (){
       <form className="create-form">
         <div className="create-groups">
       <label htmlFor="title">Title</label>
-      <input type="text" name="title" id="title" placeholder="title"></input>
+      <input type="text" name="title" id="title" placeholder="title"/>
       </div>
       <div className="create-groups">
       <label htmlFor="author">Author</label>
-      <input type="text" id="author" name="author" placeholder="author"></input>
+      <input type="text" id="author" name="author" placeholder="author"/>
       </div>
       <div className="create-groups">
       <label htmlFor="publisher">Publisher</label>
@@ -27,19 +27,22 @@ function Create (){
       </select></div>
       <div className="create-groups">
       <label htmlFor="genre">Genre:</label>
-      <input type="text" id="genre" placeholder="Genre"></input>
+      <input type="text" id="genre" placeholder="Genre"/>
       </div>
       <div className="create-groups">
       <label htmlFor="pages"> Number of pages</label>
-      <input type="number" id="places" placeholder="Number of pages"></input>
+      <input type="number" id="places" placeholder="Number of pages"/>
       </div>
       <div className="create-groups">
       <label htmlFor="rating">Rating</label>
-      <input type="number" name="rating" id="rating"></input>
+      <input type="number" name="rating" id="rating"/>
       </div>
       <div className="create-groups">
       <label htmlFor="synopsis">Synopsis</label>
       <textarea name="synopsis" id="synopsis">Synopsis</textarea></div>
+      <button type="submit" className="sub-button">
+          Submit
+        </button>
      </form>
   </main>
 
