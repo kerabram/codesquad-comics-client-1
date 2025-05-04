@@ -15,15 +15,22 @@ import Update from "./components/Update";
 import Header from "./shared/Header";
 import Footer from "./shared/Footer";
 
+
 function App() {
+const [user, setUser] = useState(localStorage.getItem("user"))
+
+
+
   return ( 
     <div className="App">
-      <Header />
-      <main>
+      <Header user={user} setUser={setUser}/> 
+      <main>clear
+        
         <Home />
         <About />
-        <Login />
-        <Signup />
+        <Login user={user} setUser={setUser}/>
+
+        <Signup user={user} setUser={setUser}/>
         <Admin />
         <Create />
         <Update />
