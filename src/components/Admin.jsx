@@ -1,6 +1,13 @@
+import React, { useState, useEffect } from 'react' 
 import booksData from "../data/books";
 
 function Admin() {
+  const [books,setBooks] = useState ([]);
+  useEffect(() => {
+      setBooks(booksData)
+      }, []);
+
+
   return (
     <main>
       <div className="admin-container">
@@ -16,7 +23,7 @@ function Admin() {
               </tr>
             </thead>
             <tbody>
-              {booksData.map((book) => (
+              {books.map((book) => (
                 <tr key={book.id}>
                   <td>{book.title}</td>
                   <td>
