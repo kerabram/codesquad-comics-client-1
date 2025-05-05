@@ -1,6 +1,25 @@
+import React, { useState, useEffect } from 'react' 
+import booksData from '../data/books';
+
 function Update() {
+  const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a";
+  const [book,setBooks] = useState ({});
+  useEffect(() => {
+    const foundBook = booksData.find((book) => book._id === id);
+    setBooks(foundBook);
+      }, [id]);
+  const handleUpdateForm = (e)=> {
+    e.preventDefault();
+        console.log("Update Form Submitted");
+        console.log(e.target.title.value);
+        console.log(e.target.publisher.value);
+        console.log(e.target.genre.value);
+        console.log(e.target.pages.value);
+        console.log(e.target.rating.value);
+        console.log(e.target.synopsis.value);
+  }
   return (
-    <main className="update-container">
+    <main className="update-container" onSubmit={handleUpdateForm}>
       <h1> UPDATE COMIC</h1>
       <form className="update-form">
         <div className="form-groups">
@@ -8,8 +27,9 @@ function Update() {
           <input
             type="text"
             id="title"
-            name="title"
-            value="title value stored in database"
+            name="title" 
+            defaultValue={book.title}
+            required
             />
         </div>
         <div className="form-groups">
@@ -17,17 +37,16 @@ function Update() {
           <input
             type="text"
             id="author"
-            name="title"
-            value="author value stored in database"
+            name="author"
+            defaultValue={book.author}
+            required
           />
         </div>
 
         <div className="form-groups">
           <label htmlFor="publisher">Publisher:</label>
-          <select name="publisher" id="publisher">
-            <option value="disabled selected">
-              publisher value stored in database
-            </option>
+          <select name="publisher" id="publisher" defaultValue={book.publisher}
+            required>
             <option value="BOOM! Box">BOOM! Box:</option>
             <option value="DC Comics">DC Comics</option>
             <option value="Harry N. Abrams">Harry N. Abrams</option>
@@ -45,26 +64,32 @@ function Update() {
             type="number"
             id="genre"
             name="genre"
-            value="genre stored in database"
+            defaultValue={book.genre}
+            required
             />
         </main>
         <div className="form-groups">
           <label htmlFor="pages">Number of pages</label>
-          <input type="text" name="pages" id="pages" value="255"/>
+          <input type="text" name="pages"
+           id="pages" defaultValue={book.pages}
+           required/>
         </div>
         <div className="form-groups">
           <label htmlFor="rating">Rating</label>
-          <input type="number" id="rating" name="rating" value="5"/>
+          <input type="number" id="rating" name="rating" 
+          defaultValue={book.rating}
+          required />
         </div>
         <div className="form-groups">
           <label htmlFor="synopsis">Synopsis</label>
-          <textarea name="synopsis" id="synopsis">
-            value stored in database
+          <textarea name="synopsis" id="synopsis"
+          defaultValue={book.synopsis}
+          required>
           </textarea>
         </div>
-        <button type="submit" className="sub-button">
+        <input type="submit" className="sub-button">
           Submit
-        </button>
+        </input>
       </form>
     </main>
   );

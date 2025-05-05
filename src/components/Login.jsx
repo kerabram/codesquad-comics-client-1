@@ -1,6 +1,6 @@
 import React from 'react' 
 
-function Login (){
+function Login ({user, setUser}){
     const handleLoginForm = (e) =>{
       e.preventDefault();
     console.log("Login Form Submitted");
