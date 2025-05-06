@@ -1,8 +1,18 @@
 function Signup( {user, setUser}) {
+    //Kit: you need to have a handler function here, similar to login.jsx. Uncomment.
+    /*
+    
+    */
+    const handleSignupFormSubmit = (e) => {
+        //prevent default
+
+        //console.log values
+    }
     return (
         <div>
             <div>Signup</div>
             <main className="update-container">
+                {/* Kit: add handleSignupFormSubmit to the form element */}
                 <form className="update-form">
                     <div className="form-groups">
                         <label htmlFor="firstName">FirstName:</label>
