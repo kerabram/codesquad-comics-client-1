@@ -1,7 +1,7 @@
-import React, { useState } from 'react' //Kit: you should have React imported
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 // Components
 import About from "./components/About";
 import Admin from "./components/Admin";
@@ -14,30 +14,27 @@ import Update from "./components/Update";
 // Shared Layout
 import Header from "./shared/Header";
 import Footer from "./shared/Footer";
-
+import { Routes, Route } from "react-router-dom";
+import "react-router-dom";
 
 function App() {
-const [user, setUser] = useState(localStorage.getItem("user"))
+  const [user, setUser] = useState(localStorage.getItem("user") || {});
 
-
-
-  return ( 
-    <div className="App">
-      <Header user={user} setUser={setUser}/> 
-      <main>clear
-        
-        <Home />
-        <About />
-        <Login user={user} setUser={setUser}/>
-
-        <Signup user={user} setUser={setUser}/>
-        <Admin />
-        <Create />
-        <Update />
-      </main>
+  return (
+    <>
+      <Header user={user} setUser={setUser} />  
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/login" element={<Login user={user} setUser={setUser} />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/update/:userId" element={<Update user={user} setUser={setUser} />} />
+      </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 
-export default App
+export default App;
