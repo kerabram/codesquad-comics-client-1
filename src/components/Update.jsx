@@ -1,23 +1,59 @@
 import React, { useState, useEffect } from 'react' 
 import booksData from '../data/books';
+import { useParams, useNavigate } from "react-router-dom";
 
 function Update() {
-  const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a";
+  const { bookId } = useParams();
+  const navigate = useNavigate();
   const [book,setBooks] = useState ({});
   useEffect(() => {
-    const foundBook = booksData.find((book) => book._id === id);
-    setBooks(foundBook);
-      }, [id]);
-  const handleUpdateForm = (e)=> {
+    fetch (`https://course-project-codesquad-comics-server.onrender.com/books/${bookId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Book data:", data);
+      setBooks(data);
+    })
+    .catch((error) => console.error("Error fetching book data:", error));
+  }, [bookId]);
+  const handleUpdateForm = (e) => {
     e.preventDefault();
-        console.log("Update Form Submitted");
-        console.log(e.target.title.value);
-        console.log(e.target.publisher.value);
-        console.log(e.target.genre.value);
-        console.log(e.target.pages.value);
-        console.log(e.target.rating.value);
-        console.log(e.target.synopsis.value);
-  }
+  const body = {
+  title: e.target.title.value,
+  author: e.target.author.value,
+  publisher: e.target.publisher.value,
+  genre: e.target.genre.value,
+  pages: e.target.pages.value,
+  rating: e.target.rating.value,
+  synopsis: e.target.synopsis.value
+};
+
+  fetch(`https://course-project-codesquad-comics-server.onrender.com/books/${bookId}`,
+    {
+      method: "PUT",
+      body: JSON.stringify(body),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Book updated:", data);
+      setBooks(data);
+      navigate("/admin");
+    })
+    .catch((error) => console.error("Error updating book:", error));
+};
+
+  //   const foundBook = booksData.find((book) => book._id === id);
+  //   setBooks(foundBook);
+  //     }, [id]);
+  // const handleUpdateForm = (e)=> {
+  //   e.preventDefault();
+  //       console.log("Update Form Submitted");
+  //       console.log(e.target.title.value);
+  //       console.log(e.target.publisher.value);
+  //       console.log(e.target.genre.value);
+  //       console.log(e.target.pages.value);
+  //       console.log(e.target.rating.value);
+  //       console.log(e.target.synopsis.value);
+  // }
   return (
     <main className="update-container" onSubmit={handleUpdateForm}>
       <h1> UPDATE COMIC</h1>

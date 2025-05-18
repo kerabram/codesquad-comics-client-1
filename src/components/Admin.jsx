@@ -4,9 +4,23 @@ import booksData from "../data/books";
 function Admin() {
   const [books,setBooks] = useState ([]);
   useEffect(() => {
-      setBooks(booksData)
-      }, []);
+      setBooks(booksData);
+      fetch("https://course-project-codesquad-comics-server.onrender.com/api/books")
+        .then((response) => response.json())
+        .then((data) => setBooks(data))
+        .catch((error) => 
+            console.error("error", error));
+  }, []);
 
+
+    const handleDeleteComic = (bookId) => {
+      fetch(`https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Comic deleted:", data))
+        .catch((error) => console.error("Error deleting comic:", error))
+    }; [];
 
   return (
     <main>
@@ -18,7 +32,7 @@ function Admin() {
             <thead>
               <tr>
                 <th>COMIC TITLE</th>
-                <th>EDIT</th>
+                <th>UPDATE</th>
                 <th>DELETE</th>
               </tr>
             </thead>
@@ -27,10 +41,10 @@ function Admin() {
                 <tr key={book.id}>
                   <td>{book.title}</td>
                   <td>
-                    <button className="edit-btn">EDIT</button>
+                    <Link className="edit-btn" to={`/update/${book.id}`}>UPDATE</Link>
                   </td>
                   <td>
-                    <button className="delete-btn">DELETE</button>
+                    <button className="delete-btn" onClick={() => handleDeleteComic(book.id)} >DELETE</button>
                   </td>
                 </tr>
               ))}

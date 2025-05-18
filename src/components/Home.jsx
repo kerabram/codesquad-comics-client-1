@@ -5,8 +5,14 @@ import booksData from '../data/books';
 function Home() {
     const [books,setBooks] = useState ([]);
     useEffect(() => {
-        setBooks(booksData)
-        }, []);
+        setBooks(booksData);
+        fetch("https://course-project-codesquad-comics-server.onrender.com/api/books")
+            .then((response) => response.json())
+            .then((data) => setBooks(data))
+            .catch((error) => 
+                console.error("error", error));
+    }, []);
+
 
     return (
         <main>
@@ -15,7 +21,6 @@ function Home() {
                 {books.map((book) => (
                     <div className="book-listing" key={book.id}>
                       <img src= {`/images/${book.imageUrl}`} alt={book.title}/>
-                      {/* {`../../public/images/${book.image}`} -Kit- you were very close. We don't reference the public directory in image paths. You referenced cover, where we need to target the image in books.js, which corresponds with the key there  */}
                         <h3>{book.title}</h3>
                         <p>Author: {book.author}</p>
                         <a href="#">View Details</a>

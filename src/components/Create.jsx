@@ -1,18 +1,46 @@
 
 import React from 'react' 
+import { useNavigate } from 'react-router-dom';
+
+
+// function Create (){
+// const handleCreateForm = (e) =>{
+//   e.preventDefault();
+// console.log("Create Form Submitted");
+// console.log(e.target.title.value);
+// console.log(e.target.publisher.value);
+// console.log(e.target.genre.value);
+// console.log(e.target.pages.value);
+// console.log(e.target.rating.value);
+// console.log(e.target.synopsis.value);
+// }
 
 function Create (){
-const handleCreateForm = (e) =>{
-  e.preventDefault();
-console.log("Create Form Submitted");
-console.log(e.target.title.value);
-console.log(e.target.publisher.value);
-console.log(e.target.genre.value);
-console.log(e.target.pages.value);
-console.log(e.target.rating.value);
-console.log(e.target.synopsis.value);
-}
-    return (
+  const navigate = useNavigate();
+  const handleCreateForm = (e) => {
+    e.preventDefault();
+    const body = {
+  title: e.target.title.value,
+  author: e.target.author.value,
+  publisher: e.target.publisher.value,
+  genre: e.target.genre.value,
+  pages: e.target.pages.value,
+  rating: e.target.rating.value,
+  synopsis: e.target.synopsis.value
+};
+ fetch("https://course-project-codesquad-comics-server.onrender.com/api/books/create", {
+    method: "POST",
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Comic created:", data);
+      navigate("/admin");
+    })
+    .catch((error) => console.error("Error creating comic:", error));
+};
+
+  return (
     <main className="create-container">
       <h1>CREATE NEW COMIC</h1>
       <form className="create-form" onSubmit={handleCreateForm }>
@@ -40,11 +68,11 @@ console.log(e.target.synopsis.value);
       </select></div>
       <div className="create-groups">
       <label htmlFor="genre">Genre:</label>
-      <input type="text" id="genre" placeholder="Genre" required/>
+      <input type="text" id="genre" name="genre" required/>
       </div>
       <div className="create-groups">
       <label htmlFor="pages"> Number of pages</label>
-      <input type="number" id="places" placeholder="Number of pages" required/>
+      <input type="number" id="pages" name="pages" placeholder="Number of pages" required/>
       </div>
       <div className="create-groups">
       <label htmlFor="rating">Rating</label>
