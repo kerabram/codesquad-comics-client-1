@@ -40,3 +40,468 @@
 .read-the-docs {
   color: #888;
 }
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background: linear-gradient(to bottom, #c9dadc, #0a9eb5);
+    font-size: max(1.4rem, 1.1rem);
+}
+main {
+    flex: 1;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+header {
+    background-color: #083c5c;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+nav a:hover,
+nav a:focus {
+    cursor: pointer;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+
+ a:hover {
+    text-decoration: underline;
+    color: rgb(255, 255, 0);
+}
+
+.btn {
+    color: black;
+    background-color: yellow;
+}
+
+/* responsive nav */
+@media screen {
+    
+}
+
+/* index page */
+.index-section1 { 
+    border: solid darkblue 3px;
+    padding: 50px;
+    margin: 100px;
+    background-color: white;
+}
+
+.index-section2 {
+    border: solid darkblue 3px;
+    background-color: white;
+    padding: 50px;
+    margin: 100px;
+}
+
+
+a {
+    color: #f1f2f2;
+}
+
+    a:hover {
+        color: #80001a;
+}
+    a:visited {
+    color: #81b120;
+    }
+
+    .book-cover {
+      width: 200px; 
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+/* about page  */
+.about-container {
+    background-color: white;
+    border: solid 5px black;
+    max-width: 800px;
+    margin: 40px auto;
+    align-items: center;
+    max-width: 80%;
+    padding: 20px;
+}
+
+.about-container h1 {
+    text-align: center;
+    color: #004488;
+    margin-top: 40px;
+    /* font-family: 'Fredericka the Great', cursive; */
+ }
+
+ .about-container p {
+    line-height: 1.6;
+    text-align: left;
+ }
+
+ .collection-details {
+   padding-left: 20px;
+   margin-left: 0;
+ }
+
+ .collection-details li {
+
+ }
+
+ .about-container h2 { 
+    text-align: center;
+    color: #004488;
+    padding: 50px;
+ }
+
+
+/* forms */
+form {
+width: 640px;
+margin: auto;
+}
+
+form label {
+    display: inline-block;
+    text-align: right;
+    width: 192px;
+}
+
+form:last-child label {
+    vertical-align: top;
+}
+
+/* Batman Card Page */
+.batman-card img {
+    width: 200px;
+    height: 500px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: solid white;
+}
+
+.content-wrapper {
+    border-radius: 20px;
+    border: solid yellow 5px;
+    width: 500px;
+    align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.content-wrapper h1 {
+    color: yellow;
+    margin-bottom: 50px;
+    margin-top: 0px;
+    font-size: 24px;
+    padding-top: 20px;
+}
+
+.top-section {
+    text-align: center;
+    background-color: #00324a;
+    border-bottom: solid yellow 5px;
+    border-radius: 10px 10px 0px 0px;
+    width: 500px;
+}
+
+.bottom-section {
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 500px;
+   margin-top: 0px;
+}
+
+.comic-details {
+    text-align: left;
+    background-color: white;
+    margin-bottom: 0px;
+}
+.comic-details p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: black;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 20px;
+}
+
+.comic-details strong {
+    color: #00324a;
+}    
+
+/* Update Page */
+
+.update-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.update-form {
+   border: solid blue 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: white;
+   /* width: 80%;
+   max-width: 600px;
+   padding: 20px; */
+}
+
+.form-groups {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.form-groups label {
+    width: 150px;
+     font-weight: bold;
+     text-align: right;
+ 
+ }
+ 
+ textarea {
+    min-height: 100px;
+ }
+
+.form-groups input,
+.form-groups select, 
+.form-groups textarea {
+    border: 2px solid #bdb1b1;
+    width: 300px;
+}
+/* .sub-button {
+    background-color: yellow; 
+    color: black;
+    border: solid rgb(10, 9, 9);
+    border-radius: 10px;
+ } */
+
+/* create page */
+.create-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.create-form {
+   border: solid blue 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: white;
+   /* width: 80%;
+   max-width: 600px;
+   padding: 20px; */
+}
+
+.create-groups {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.create-groups label {
+    width: 150px;
+     font-weight: bold;
+     text-align: right;
+ 
+ }
+ 
+ textarea {
+    min-height: 100px;
+ }
+
+.create-groups input,
+.create-groups select, 
+.create-groups textarea {
+    border: 2px solid #bdb1b1;
+    width: 300px;
+}
+/* .sub-button {
+    background-color: yellow; 
+    color: black;
+    border: solid rgb(10, 9, 9);
+    border-radius: 10px;
+    align-items: center;
+    align-content: center; */
+
+
+/* admin page */
+
+.admin-container {
+   display: flex;
+   flex-direction: column;
+    width: 80%;
+    background: white;
+    text-align: center;
+    align-items: center;
+    border: 3px solid #1C2A4D;
+    margin: 50px auto;
+}
+
+.admin-header {
+    color: #1C2A4D;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.admin-header h1 {
+   align-items: center;
+}
+
+.btn-admin {
+    background-color: #ffcc00;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #004488
+}
+.admin-table {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border: solid black 1px;
+    margin-bottom: 75px;
+
+}
+
+th, td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #6862625a;
+        text-align: center;
+    }
+td {
+    background: #868788;
+}
+ .edit-btn .delete-btn {
+    background-color: #ffcc00;
+    border: 5px 20px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background-color: #326394;
+}
+
+.delete-btn {
+    background-color: #fdd835;
+    color: black;
+}
+
+/* login page  */
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 600px;
+    /* text-align: center; */
+    align-items: center;
+    background-color: white;
+}
+
+.login-container h1 {
+    color: #1C2A4D;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-container input[type="email"],
+.login-container input[ type="password"] {
+    border: 1px solid lightgray;
+    width: 35%;
+}
+
+/* .sub-button {
+    background-color: yellow;
+    border: 2xp solid black;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}  */
+
+.login-form label {
+    color: black;
+    margin: 0px 0 15px;
+}
+
+/* footer */
+
+.footer-contents {
+    background-color:  #083c5c;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    border-top: 5px solid yellow;
+    text-align: center;
+}
+
+.foot-links { 
+    line-height: 20px;  
+    flex-direction: row;
+}
+
+h3 {
+    text-align: center;
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.follow-us ul {
+    line-height: 20px;
+    text-decoration: none;  
+    text-align: left;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0%;
+  }
+
+.product-of img {
+    height: 75px;
+}
+/* Responsiveness */
+@media screen {
+    
+}
+
